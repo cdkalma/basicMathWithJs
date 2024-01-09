@@ -45,3 +45,35 @@ function calcularTriangulo(lado1, lado2, base, altura) {
         area: (base * altura) / 2,
     }
 }
+
+//Círculo
+console.group('circle')
+
+const radiocírculo = 3
+const diametrocirculo = radiocírculo * 2
+const pi = 3.1415
+const circunferencia = diametrocirculo * pi
+//sintaxis para elevar a la potencia un número
+const areaCirculo = (radiocírculo ** 2) * pi 
+
+console.log({
+    radiocírculo,
+    diametrocirculo,
+    pi,
+    circunferencia,
+    areaCirculo,
+})
+
+
+function calcularCirculo(radio) {
+    let diametro = radio * 2
+    //potencia con la función Math método pow
+    let radioAlCuadrado = Math.pow(radio, 2)
+    return{
+        //obtener PI con la función Math método PI
+        //También podemos delimitar el número de decimales que queremos con Math.PI.toFixed(número)
+        circunferencia: diametro * Math.PI,
+        area: radioAlCuadrado * Math.PI,
+    }
+}
+console.groupEnd('circle')
