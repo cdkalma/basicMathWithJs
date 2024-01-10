@@ -45,7 +45,32 @@ function calcularTriangulo(lado1, lado2, base, altura) {
         area: (base * altura) / 2,
     }
 }
+//Clase4
+//Reto: altura de un triángulo
+function calcularAlturaTriangulo(lado, base) {
+    if (lado == base) {
+        //forma de sacar una alerta en la consola
+        console.warn('Este no es un triángulo isosceles')
+    } else{
+        // formula a traducir a js h=raízcuadrada(a**2 - (b**2)/4)
+        //para obtener la raíz cuadrada con Math usamos el método .sqrt
+        return Math.sqrt( (Math.pow(lado, 2)-( (Math.pow(base, 2)) / 4)))
+        
+    }
+}
+//Reto: Altura de un tríangulo escaleno, todos sus lados diferentes
+function aTrianguloEscaleno(ladoa, ladob, ladoc) {
+    let semiPerimetro = (ladoa + ladob + ladoc) / 2
 
+    if (ladoa == ladob || ladoa == ladoc || ladob == ladoc) {
+        console.warn('Este no es un triángulo escaleno')
+    } else {
+        return ( (2 / ladoa) * (Math.sqrt(semiPerimetro * (semiPerimetro - ladoa) * (semiPerimetro - ladob) * (semiPerimetro - ladoc) )) )
+    }
+}
+
+
+//Clase3
 //Círculo
 console.group('circle')
 
@@ -67,10 +92,10 @@ console.log({
 
 function calcularCirculo(radio) {
     let diametro = radio * 2
-    //potencia con la función Math método pow
+    //potencia con la función Math método .pow
     let radioAlCuadrado = Math.pow(radio, 2)
     return{
-        //obtener PI con la función Math método PI
+        //obtener PI con la función Math método .PI
         //También podemos delimitar el número de decimales que queremos con Math.PI.toFixed(número)
         circunferencia: diametro * Math.PI,
         area: radioAlCuadrado * Math.PI,
