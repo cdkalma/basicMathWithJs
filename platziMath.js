@@ -1,31 +1,6 @@
-const inputPrice = document.querySelector('#price')
-const inputCoupon = document.querySelector('#coupon')
-const btn = document.querySelector('#calcular')
-const pResult = document.querySelector('#result')
+const PlatziMath = {}
+console.log(PlatziMath)
 
-const discounts = {
-    blackCrusu: 50,
-    kotaNewYear: 35,
-    birthDay: 25,
-}
-
-btn.addEventListener('click', calcularPrecioConDescuento)
-
-function calcularPrecioConDescuento() {
-    let price = Number(inputPrice.value)
-    let coupon = discounts[inputCoupon.value]
-    
-    if (price > 0 && coupon == undefined)
-    {
-        return pResult.innerText = 'ingresa un cupón valido'
-    }
-    if (!price || !coupon){
-        pResult.innerText = 'Por favor llena el formulario'
-    } else {
-        let newPrice = (price * (100 - coupon)) / 100
-        pResult.innerText = 'El nuevo precio con descuento es $' + newPrice
-    }
-}
 
 //PROMEDIO
 /* En este ejemplo, el método `reduce()` itera sobre el array de números y suma cada elemento 
@@ -39,7 +14,7 @@ console.log(promedio)
 
 // Función para calcular el promedio
 
-function calcularPromedio(lista) {
+PlatziMath.calcularPromedio = function calcularPromedio(lista) {
     // sumar los elementos del array
     let sumaLista = 0 
 
@@ -56,7 +31,7 @@ function calcularPromedio(lista) {
 saber cómo abordar el problema */
 
 
-function esParOImpar(array) {
+PlatziMath.esParOImpar = function esParOImpar(array) {
     if (array.length % 2 === 0) {
         return "La lista es par, mira su mediana: " + medianaPar(array);
     } else {
@@ -64,7 +39,7 @@ function esParOImpar(array) {
     }
 }
 
-function medianaPar(array) {
+PlatziMath.medianaPar = function medianaPar(array) {
     let OrdenarLista = array.sort((a, b) => a - b);
     let indexListaParOne = OrdenarLista.length / 2
     let indexListaParTwo = indexListaParOne - 1
@@ -74,7 +49,7 @@ function medianaPar(array) {
 
 
 /* Función para calcular la mediana de una lista impar */
-function medianaImpar(array) {
+PlatziMath.medianaImpar = function medianaImpar(array) {
     //Primero ordenamos la lista de forma ascedente
     let OrdenarLista = array.sort((a, b) => a - b);
     //Luego buscamos el punto medio de esta lista
@@ -86,7 +61,7 @@ function medianaImpar(array) {
 }
 
 // calculando la moda
-function calcularModa(lista) {
+PlatziMath.calcularModa = function calcularModa(lista) {
     const listaCount = {}
 
     for (let i = 0; i < lista.length; i++) {
@@ -119,7 +94,7 @@ ese sería el primer número en acc, a continuación se hace la siguiente divisi
 el resultado de esta se suma con el acc para obtener uno nuevo así hasta recorrer
 toda nuestra lista y obtener un solo número. Finalmente se divide lista.length entre
 el resultado de nuestro lista.reduce()*/
-function calcularMediaArmonica(lista) {
+PlatziMath.calcularMediaArmonica = function calcularMediaArmonica(lista) {
     let mediaArmonica = lista.length / lista.reduce((acc, elem) => acc + (1/elem), 0 )
     return "la media armónica es: " + mediaArmonica
     console.log(n)

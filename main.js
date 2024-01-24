@@ -11,7 +11,7 @@ console.log({
     areaCuadrado,
 })
 
-/* Al hacerlo a tavés de una función permitimos que se pueda ingresar nueva información */
+/* Al hacerlo a través de una función permitimos que se pueda ingresar nueva información */
 function calcularCuadrado(lado) {
     return{
         perimetro: lado * 4,
