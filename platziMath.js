@@ -26,18 +26,20 @@ PlatziMath.calcularPromedio = function calcularPromedio(lista) {
     return promedioLista
 }
 
-//Mediana
+  //Mediana
 /* Primero necesitamos conocer si la lista es par o impar para
 saber cómo abordar el problema */
 
 
 PlatziMath.esParOImpar = function esParOImpar(array) {
     if (array.length % 2 === 0) {
-        return "La lista es par, mira su mediana: " + medianaPar(array);
+        return "La lista es par, mira su mediana: " + PlatziMath.medianaPar(array);
     } else {
-        return "La lista es impar, mira su mediana: " + medianaImpar(array);
+        return "La lista es impar, mira su mediana: " + PlatziMath.medianaImpar(array);
     }
 }
+
+
 
 PlatziMath.medianaPar = function medianaPar(array) {
     let OrdenarLista = array.sort((a, b) => a - b);
@@ -99,3 +101,54 @@ PlatziMath.calcularMediaArmonica = function calcularMediaArmonica(lista) {
     return "la media armónica es: " + mediaArmonica
     console.log(n)
 }
+
+/////
+
+PlatziMath.ordenarLista = function ordenarLista(listaDesordenada) {
+    function ordenarListaSort(valorAcumulado, nuevoValor) {
+      return valorAcumulado - nuevoValor;
+    }
+    
+    // const lista = listaDesordenada.sort((a,b) => a-b);
+    const lista = listaDesordenada.sort(ordenarListaSort);
+    
+    return lista;
+}
+
+PlatziMath.esPar = function esPar(lista) {
+    return !(lista.length % 2);
+}
+
+PlatziMath.calcularPromedio = function calcularPromedio(lista) {
+    function sumarTodosElementos(valorAcumulado, nuevoValor) {
+      return valorAcumulado + nuevoValor;
+    }
+  
+    const sumaLista = lista.reduce(sumarTodosElementos);  
+    const promedio = sumaLista / lista.length;
+    // console.log(promedio);
+    return promedio;
+}
+
+PlatziMath.calcularMediana = function calcularMediana(listaDesordenada) {
+    const lista = PlatziMath.ordenarLista(listaDesordenada);
+    const listaEsPar = PlatziMath.esPar(lista);
+  
+    if (listaEsPar) {
+      const indexMitad1ListaPar = (lista.length / 2) - 1;
+      const indexMitad2ListaPar = lista.length / 2;
+      const listaMitades = [];
+      listaMitades.push(lista[indexMitad1ListaPar]);
+      listaMitades.push(lista[indexMitad2ListaPar]);
+  
+      const medianaListaPar = PlatziMath.calcularPromedio(listaMitades);
+      return medianaListaPar;
+    } else {
+      const indexMitadListaImpar = Math.floor(lista.length / 2);
+      const medianaListaImpar = lista[indexMitadListaImpar];
+      console.log(indexMitadListaImpar);
+      console.log(medianaListaImpar);
+      return medianaListaImpar;
+    }
+}
+
